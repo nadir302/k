@@ -1,0 +1,16 @@
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import departments from './routes/departments.js';
+import employees from './routes/employees.js';
+import stats from './routes/stats.js';
+dotenv.config();
+const app = express();
+app.use(cors()); app.use(express.json());
+app.use('/api/departments', departments);
+app.use('/api/employees', employees);
+app.use('/api/stats', stats);
+app.get('/', (req, res) => res.json({ status: 'ok' }));
+app.use((err, req, res, next) => { console.error(err); res.status(500).json({ error: 'Internal server error' }); });
+const port = process.env.PORT || 4001;
+app.listen(port, () => console.log(`Server running on port ${port}`));

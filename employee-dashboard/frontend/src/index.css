@@ -1,0 +1,26 @@
+body { font-family: system-ui, Arial, sans-serif; }
+input, select, textarea { width: 100%; padding: 8px; margin: 6px 0; box-sizing: border-box }
+button { padding: 8px 12px; cursor: pointer }
+/* Surface theme tokens */
+:root {
+  --surface-bg: #0b1020; /* page background for contrast */
+  --surface-elev-0: #0f172a;
+  --surface-elev-1: #ffffff;
+  --surface-border: #e5e7eb;
+  --surface-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--surface-bg); color: #0b1220; }
+
+/* Utility grid for cards */
+.surface-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .surface-grid-2 { grid-template-columns: 1fr 1fr; }
+  .surface-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+}
